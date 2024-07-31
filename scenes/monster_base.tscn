@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkw7awkb7djur"]
+
+[ext_resource type="Texture2D" uid="uid://cgkvwxhljr1ns" path="res://art/Monsters/monster_base.png" id="1_ddm5t"]
+[ext_resource type="Script" path="res://scripts/monster_base.gd" id="1_hyo3x"]
+[ext_resource type="Texture2D" uid="uid://bsdawauh5nwhn" path="res://art/Monsters/monster_base_run.png" id="2_2hnuv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tn6vn"]
+size = Vector2(162, 193)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nn7dk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ddm5t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2hnuv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_ddm5t")
+}],
+"loop": true,
+"name": &"run",
+"speed": 4.0
+}]
+
+[node name="MonsterBase" type="Area2D" groups=["Monsters"]]
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(0.7, 0.7)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_hyo3x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_tn6vn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nn7dk")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

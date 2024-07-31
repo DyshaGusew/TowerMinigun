@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=3 uid="uid://d38b1a5g1p62k"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_1qk7y"]
+
+[sub_resource type="FontFile" id="FontFile_54g46"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/55/0 = Vector2(0, 0)
+cache/0/55/0/ascent = 0.0
+cache/0/55/0/descent = 0.0
+cache/0/55/0/underline_position = 0.0
+cache/0/55/0/underline_thickness = 0.0
+cache/0/55/0/scale = 1.0
+cache/0/55/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/55/0/kerning_overrides/55/0 = Vector2(0, 0)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_1qk7y")
+
+[node name="FoneMenu" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Continue" type="Button" parent="FoneMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -240.0
+offset_right = 205.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_54g46")
+theme_override_font_sizes/font_size = 55
+text = "Продолжить"
+
+[node name="NewGame" type="Button" parent="FoneMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -90.0
+offset_right = 205.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_54g46")
+theme_override_font_sizes/font_size = 55
+text = "Новая игра"
+
+[node name="Settings" type="Button" parent="FoneMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = 60.0
+offset_right = 205.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_54g46")
+theme_override_font_sizes/font_size = 55
+text = "Настройки"
+
+[node name="Exit" type="Button" parent="FoneMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = 210.0
+offset_right = 205.0
+offset_bottom = 318.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_54g46")
+theme_override_font_sizes/font_size = 55
+text = "Выход"
+
+[connection signal="pressed" from="FoneMenu/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="FoneMenu/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="FoneMenu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="FoneMenu/Exit" to="." method="_on_exit_pressed"]

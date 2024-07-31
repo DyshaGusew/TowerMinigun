@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj6hkwv6k453i"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_kgojx"]
+[ext_resource type="Theme" uid="uid://dp6umnklsshm6" path="res://menu_thema.tres" id="2_1wo7k"]
+
+[node name="Menu" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_kgojx")
+
+[node name="FoneMenu" type="Panel" parent="."]
+process_mode = 3
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("2_1wo7k")
+
+[node name="Continue" type="Button" parent="FoneMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -240.0
+offset_right = 205.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1wo7k")
+theme_override_font_sizes/font_size = 55
+text = "Продолжить"
+
+[node name="NewGame" type="Button" parent="FoneMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -90.0
+offset_right = 205.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1wo7k")
+theme_override_font_sizes/font_size = 55
+text = "Новая игра"
+
+[node name="Settings" type="Button" parent="FoneMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = 60.0
+offset_right = 205.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1wo7k")
+theme_override_font_sizes/font_size = 55
+text = "Настройки"
+
+[node name="Exit" type="Button" parent="FoneMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = 210.0
+offset_right = 205.0
+offset_bottom = 318.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1wo7k")
+theme_override_font_sizes/font_size = 55
+text = "Выход"
+
+[connection signal="pressed" from="FoneMenu/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="FoneMenu/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="FoneMenu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="FoneMenu/Exit" to="." method="_on_exit_pressed"]

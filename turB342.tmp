@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3ckv1763e3tb"]
+
+[ext_resource type="Script" path="res://turel.gd" id="1_uo6au"]
+[ext_resource type="Texture2D" uid="uid://b006rxeb6g52u" path="res://art/BaseTurel.png" id="2_eghbv"]
+[ext_resource type="Texture2D" uid="uid://dr5j6nl38ndo5" path="res://art/GunTurel.png" id="2_gsb0k"]
+[ext_resource type="Texture2D" uid="uid://duyigijp7lh6h" path="res://art/ShootTurel.png" id="4_6cwvh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1hcxi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6cwvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gsb0k")
+}],
+"loop": false,
+"name": &"shot",
+"speed": 3.0
+}]
+
+[node name="Turel" type="Node2D"]
+position = Vector2(566, 531)
+scale = Vector2(2, 2)
+script = ExtResource("1_uo6au")
+rotation_speed = 5
+reload = 0
+
+[node name="BaseTurel" type="Sprite2D" parent="."]
+texture = ExtResource("2_eghbv")
+
+[node name="Gun" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.41859e-05, 2.26498e-06)
+rotation = 0.00698132
+sprite_frames = SubResource("SpriteFrames_1hcxi")
+animation = &"shot"
+frame = 1
+offset = Vector2(0.303215, -11.5222)
+
+[node name="TimerShoot" type="Timer" parent="."]
+wait_time = 8.983
+
+[connection signal="timeout" from="TimerShoot" to="." method="_on_timer_shoot_timeout"]

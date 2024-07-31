@@ -1,0 +1,279 @@
+[gd_scene load_steps=18 format=3 uid="uid://dvpmdgxxogthf"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_5k86v"]
+[ext_resource type="PackedScene" uid="uid://b3ckv1763e3tb" path="res://turel.tscn" id="1_42k7r"]
+[ext_resource type="PackedScene" uid="uid://dkw7awkb7djur" path="res://monster_base.tscn" id="2_y781u"]
+[ext_resource type="Texture2D" uid="uid://b6v0jx0on1lq1" path="res://art/Wall.png" id="4_xy44d"]
+[ext_resource type="Theme" uid="uid://dp6umnklsshm6" path="res://menu_thema.tres" id="5_raoyq"]
+
+[sub_resource type="Curve2D" id="Curve2D_qe41e"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 50, -321.228, 0, 0, 0, 0, 2092, -319.27, 0, 0, 0, 0, 2180, -148.952, 0, 0, 0, 0, 2110, 410.942, 0, 0, 0, 0, 2021, 414.857, 0, 0, 0, 0, 1988, -144.058, 0, 0, 0, 0, -17, -146.016, 0, 0, 0, 0, -84, 421.709, 0, 0, 0, 0, -146, 426.603, 0, 0, 0, 0, -186, -164.614, 0, 0, 0, 0, -28, -327.101, 0, 0, 0, 0, 52, -321.228, 0, 0, 0, 0, 50, -327.101)
+}
+point_count = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vdcj"]
+bg_color = Color(0.333919, 0.606412, 0.951955, 1)
+
+[sub_resource type="Theme" id="Theme_s6du3"]
+/styles/GGG = SubResource("StyleBoxFlat_3vdcj")
+
+[sub_resource type="LabelSettings" id="LabelSettings_4qnls"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_d212f"]
+font_size = 50
+
+[sub_resource type="FontVariation" id="FontVariation_v3tmu"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_ecs3s"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_53knw"]
+events = [SubResource("InputEventAction_ecs3s")]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mkx0i"]
+
+[sub_resource type="Theme" id="Theme_yltow"]
+Panel/colors/gg = Color(0.964706, 0, 0, 1)
+Panel/styles/panel = SubResource("StyleBoxEmpty_mkx0i")
+
+[sub_resource type="FontFile" id="FontFile_b2utv"]
+cache/0/55/0/ascent = 0.0
+cache/0/55/0/descent = 0.0
+cache/0/55/0/underline_position = 0.0
+cache/0/55/0/underline_thickness = 0.0
+cache/0/55/0/scale = 1.0
+cache/0/55/0/kerning_overrides/55/0 = Vector2(0, 0)
+cache/0/55/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/55/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_2lb8b"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/55/0 = Vector2(0, 0)
+cache/0/55/0/ascent = 0.0
+cache/0/55/0/descent = 0.0
+cache/0/55/0/underline_position = 0.0
+cache/0/55/0/underline_thickness = 0.0
+cache/0/55/0/scale = 1.0
+cache/0/55/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/55/0/kerning_overrides/55/0 = Vector2(0, 0)
+
+[node name="Main" type="Node2D"]
+light_mask = 256
+visibility_layer = 256
+script = ExtResource("1_5k86v")
+mob_scene = ExtResource("2_y781u")
+
+[node name="Fone" type="ColorRect" parent="."]
+offset_top = -8.0
+offset_right = 1988.0
+offset_bottom = 1147.0
+color = Color(0.301631, 0.32972, 0.301311, 1)
+
+[node name="Turel" parent="." instance=ExtResource("1_42k7r")]
+position = Vector2(960, 928)
+scale = Vector2(3, 3)
+reload = 0.2
+
+[node name="Defence" type="Area2D" parent="."]
+position = Vector2(961, 832)
+scale = Vector2(1.3, 1.479)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Defence"]
+position = Vector2(-86.2069, -52.2727)
+build_mode = 1
+polygon = PackedVector2Array(-179.31, 24.2424, -175, 188, 354.31, 182.576, 346.552, 31.0606, 277.586, -30.303, 135, -65, 66, -69, -16, -66, -135, -14)
+
+[node name="Sprite2D" type="Sprite2D" parent="Defence"]
+scale = Vector2(3.4, 3)
+texture = ExtResource("4_xy44d")
+offset = Vector2(8.82355, -12.3333)
+
+[node name="MobPath" type="Path2D" parent="."]
+position = Vector2(0, 8.17297)
+scale = Vector2(1, 1.02162)
+curve = SubResource("Curve2D_qe41e")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(50, -321.228)
+rotation = 0.000958867
+
+[node name="CounterXP" type="Label" parent="."]
+top_level = true
+light_mask = 512
+visibility_layer = 512
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -494.0
+offset_right = -123.0
+offset_bottom = 125.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme = SubResource("Theme_s6du3")
+text = "Опыт: 0"
+label_settings = SubResource("LabelSettings_4qnls")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HpLable" type="Label" parent="."]
+top_level = true
+light_mask = 512
+visibility_layer = 512
+offset_left = 52.0
+offset_right = 470.0
+offset_bottom = 140.0
+theme = SubResource("Theme_s6du3")
+text = "Здровье: 10"
+label_settings = SubResource("LabelSettings_d212f")
+vertical_alignment = 1
+
+[node name="LavelLable" type="Label" parent="."]
+top_level = true
+offset_left = 753.0
+offset_right = 1171.0
+offset_bottom = 140.0
+theme = SubResource("Theme_s6du3")
+text = "Уровень: 1"
+label_settings = SubResource("LabelSettings_d212f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 648.0
+offset_top = 264.0
+offset_right = 1263.0
+offset_bottom = 464.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(308, 118)
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = SubResource("Theme_s6du3")
+theme_override_colors/icon_normal_color = Color(0.929793, 2.88785e-07, 0.51675, 1)
+theme_override_colors/icon_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.952941, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0.970647, 0, 0.443702, 1)
+theme_override_fonts/font = SubResource("FontVariation_v3tmu")
+theme_override_font_sizes/font_size = 64
+shortcut = SubResource("Shortcut_53knw")
+text = "Начать игру"
+metadata/_edit_use_anchors_ = true
+
+[node name="Pause" type="Button" parent="."]
+top_level = true
+offset_left = 1608.0
+offset_top = 896.0
+offset_right = 1787.0
+offset_bottom = 1040.0
+theme = ExtResource("5_raoyq")
+theme_override_font_sizes/font_size = 50
+text = "Меню"
+
+[node name="PauseMenu" type="Panel" parent="."]
+process_mode = 2
+visible = false
+top_level = true
+offset_left = 528.0
+offset_top = 104.0
+offset_right = 1416.0
+offset_bottom = 1024.0
+theme = ExtResource("5_raoyq")
+
+[node name="ReturnedInGame" type="Button" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -260.0
+offset_right = 206.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_yltow")
+theme_override_fonts/font = SubResource("FontFile_b2utv")
+theme_override_font_sizes/font_size = 55
+text = "Продолжить"
+
+[node name="Settings" type="Button" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -110.0
+offset_right = 205.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_2lb8b")
+theme_override_font_sizes/font_size = 55
+text = "Настройки"
+
+[node name="ExitMenu" type="Button" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = 40.0
+offset_right = 205.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_2lb8b")
+theme_override_font_sizes/font_size = 55
+text = "Выйти в меню"
+
+[node name="ExitAll" type="Button" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = 190.0
+offset_right = 205.0
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_2lb8b")
+theme_override_font_sizes/font_size = 55
+text = "Выход"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="PauseMenu/ReturnedInGame" to="." method="_on_returned_in_game_pressed"]
+[connection signal="pressed" from="PauseMenu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="PauseMenu/ExitMenu" to="." method="_on_exit_menu_pressed"]
+[connection signal="pressed" from="PauseMenu/ExitAll" to="." method="_on_exit_pressed"]

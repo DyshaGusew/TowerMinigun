@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bomnr1jvhpbl8"]
+
+[ext_resource type="Script" path="res://scripts/Bullet.gd" id="1_gfu4t"]
+[ext_resource type="Texture2D" uid="uid://d4n2twd4qw5g1" path="res://art/TurelComponents/Bullets/Bullet_1.png" id="2_x5nkx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oedba"]
+radius = 19.0
+height = 56.0
+
+[node name="Bullet" type="Area2D" groups=["Bullets"]]
+position = Vector2(442, 310)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_gfu4t")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_x5nkx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.35, 0.35)
+shape = SubResource("CapsuleShape2D_oedba")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
